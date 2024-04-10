@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 //primeiro commit
+//subindo alterações pro github
 
 export default function Home() {
   return (
