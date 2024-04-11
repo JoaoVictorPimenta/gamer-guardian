@@ -46,7 +46,7 @@ export default function Home() {
       <div className='container'>
         <h2>O que é Gamerguardian? </h2>
         <div className='introduction'>
-          <p>
+          <p className="textinho">
             É uma plataforma que auxilia gamers universitários para dar aquele boost necessário e tankar as tarefas do dia a dia sem deixar aquela jogatina de lado! A partir de recursos para garantir um planejamento entre deveres e lazer, além de técnicas de relaxamento musculares e mentais, para ter um dia mais tranquilo e organizado!
           </p>
         </div>
