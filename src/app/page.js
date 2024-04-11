@@ -50,8 +50,7 @@ export default function Home() {
             É uma plataforma que auxilia gamers universitários para dar aquele boost necessário e tankar as tarefas do dia a dia sem deixar aquela jogatina de lado! A partir de recursos para garantir um planejamento entre deveres e lazer, além de técnicas de relaxamento musculares e mentais, para ter um dia mais tranquilo e organizado!
           </p>
         </div>
-
-        <hr className='line' />
+        
         <h2>Ferramentas </h2>
         <div className='cardGroup'>
           {dados.map(item => <HomeCard {...item} />)}

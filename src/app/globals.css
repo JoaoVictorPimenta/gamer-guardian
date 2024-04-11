@@ -5,6 +5,27 @@
   color: black;
 }
 
+.diaSem {
+  font-family: 'Abel';
+  font-size: 20px;
+  color: #6788C3;
+  font-family: "Nimbus Sans L";
+  font-style: normal;
+  line-height: normal;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.cardDia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.withLine {
+  border-bottom: 1px solid #000000;
+}
+
 .fundo {
   background-color: #F9ECDD;
   display: flex;
@@ -29,8 +50,15 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: stretch;
-
   gap: 1rem;
+}
+
+.space {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding-inline: 1rem;
 }
 
 .imagem {
@@ -47,6 +75,13 @@
   border: 1px solid #000;
   margin: 1rem;
   padding: .5rem;
+}
+
+.cardNew {
+  background-color: #FFDEB9;
+  border-radius: 1.25rem;
+  border: 1px solid #000;
+  margin: 1rem;
 }
 
 .nomePag {
@@ -97,6 +132,10 @@
 
 .link:link {
   text-decoration: none; 
+}
+
+.corFooter:link {
+  color: white;
 }
 
 .botao:hover {
@@ -211,9 +250,11 @@ body{
   padding-top: 1rem;
 }
 
-.line {
-  padding-inline: 100%;
-  border: 1px solid #F7A675;
+
+.introduction {
+  border-bottom: 1px solid #F7A675;
+  padding-top: 1rem;
+  margin-inline: 1rem;
 }
 
 .card{
