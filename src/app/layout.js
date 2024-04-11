@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+// import {font} from 'https://fonts.googleapis.com/css?family=Abel'
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -9,9 +11,31 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const navLinks = [
+    {
+      name: "Home",
+      href: "/",
+    },
+    {
+      name: "Técnicas de Relaxamento",
+      href: "/tecnicas-de-relaxamento",
+    },
+    {
+      name: "Rotina Leve",
+      href: "/rotina-leve",
+    },
+    {
+      name: "Permita-se Sentir",
+      href: "/permita-se-sentir",
+    },
+  ];
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navigation navLinks={navLinks} />
+        {children}
+        <Footer/>
+      </body>
     </html>
-  );
+  )
 }
