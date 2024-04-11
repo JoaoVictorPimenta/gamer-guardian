@@ -1,98 +1,78 @@
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import Link from "next/link";
+import React from 'react';
 
-//primeiro commit
-//subindo alterações pro github
+// export default function Home() {
+//   return (
+//     <div className="fundo">
+//       <main>
+//         <p>eu sou a pagina inicial</p>
+//       </main>
+//     </div>
+//   );
+// }
+
+
+
+const dados = [
+  {
+    titulo: "técnicas de relaxamento",
+    imagem: "relaxamento.png",
+    style: "card1",
+    introducao: "Encontre alguns exemplos de técnicas de relaxamento, tanto muscular quanto mental, para realizar em casa.",
+    link: "/tecnicas-de-relaxamento"
+  },
+  {
+    titulo: "rotina leve",
+    imagem: "rotina.png",
+    style: "card2",
+    introducao: "Conte com um planejamento da rotina de faculdade e trabalho alinhado ao seu tempo de lazer!",
+    link: "/rotina-leve"
+  },
+  {
+    titulo: "permita-se sentir",
+    imagem: "sentimento.png",
+    style: "card3",
+    introducao: "Responda nosso quiz diário e garanta sugestões de jogos de acordo com seus sentimentos!",
+    link: "/permita-se-sentir"
+  }
+]
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <div className='container'>
+        <h2>O que é Gamerguardian? </h2>
+        <div className='introduction'>
+          <p>
+            É uma plataforma que auxilia gamers universitários para dar aquele boost necessário e tankar as tarefas do dia a dia sem deixar aquela jogatina de lado! A partir de recursos para garantir um planejamento entre deveres e lazer, além de técnicas de relaxamento musculares e mentais, para ter um dia mais tranquilo e organizado!
+          </p>
+        </div>
+
+        <hr className='line' />
+        <h2>Ferramentas </h2>
+        <div className='cardGroup'>
+          {dados.map(item => <HomeCard {...item} />)}
         </div>
       </div>
+    </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
   );
 }
+
+function HomeCard({ titulo, imagem, style, introducao, link }) {
+  return (
+    <Link href={link} className="link">
+      <div className={"card " + style}>
+        <img src={imagem} alt={titulo} className={'imagem ' + style} />
+        <div className='nimbus'>
+          <h3 className='titulo-card'>{titulo}</h3>
+          <p>{introducao}</p>
+        </div>
+      </div>
+    </Link>
+  )
+}
+

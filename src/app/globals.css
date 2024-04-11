@@ -1,107 +1,270 @@
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+.titulo {
+  font-family: 'Abel';
+  font-size: 22px;
+  color: black;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
+.fundo {
+  background-color: #F9ECDD;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-* {
-  box-sizing: border-box;
+.alinhaVert {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.cardGroup {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.alinhaHoriz {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+
+  gap: 1rem;
+}
+
+.imagem {
+  width: 5rem;
+  height: 5rem;
+  max-width: 60rem;
+  max-height: 70rem;
+  margin: 1rem;
+}
+
+.card {
+  background-color: #FFDEB9;
+  border-radius: 1.25rem;
+  border: 1px solid #000;
+  margin: 1rem;
+  padding: .5rem;
+}
+
+.nomePag {
+  text-align: center;
+  font-family: Abel;
+  font-size: 1.4375rem;
+  font-style: normal;
+  font-weight: bolder;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.pag1 {
+  color: #6788C3;
+}
+
+.pag2 {
+  color: #FAAD7A;
+}
+
+.pag3 {
+  color: #D4ADD0;
+}
+
+.nimbus {
+  color: #101010;
+  font-family: "Nimbus Sans L";
+  font-style: normal;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.atividade {
+  font-weight: bold;
+}
+
+.botao:link {
+  border-radius: 2.4375rem;
+  border: 2px solid #DA705A;
+  display: flex;
+  padding: .2rem;
+  padding-inline: 1rem;
+  order: 2;
+  align-self: flex-end;
+  text-decoration: none; 
+
+}
+
+.link:link {
+  text-decoration: none; 
+}
+
+.botao:hover {
+  border-radius: 2.4375rem;
+  border: 2px solid #000000;
+  background-color: #DA705A;
+  color: white;
+}
+
+body{
   padding: 0;
   margin: 0;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+.topnav{
+  display: flex;
+  flex-direction: row;
+  position: 'absolute';
+  position: sticky;
+  font-family: "Nimbus Sans L";
+  text-transform: uppercase;
+  color: #F9ECDD;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  background-color: #101010;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-a {
-  color: inherit;
+.topnav a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.btn-mobile {
+  display: none;
+}
+
+.menu {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.menu li {
+  padding: 0;
+}
+
+.menu a {
+  color: white;
+  padding: 0.5rem;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  background-color: #6788C3;
+  color: #F9ECDD;
+}
+
+.logo{
+  width: 39.359px;
+  height: 27.71px;
+  flex-shrink: 0;
+  padding-top:5px;
+  padding-right: 1rem;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F9ECDD;
+  font-family: "Nimbus Sans L";
+}
+
+.container h2{
+  color: #DA705A;
+  font-family: "Abel";
+}
+.footer{
+  display: flex;
+  flex-direction: column;
+  background-color: #101010 ;
+  align-items: stretch;
+  color: #FFFFFF;
+  font-family: "Open Sans";
+  padding-inline: 1rem;
+}
+
+.alinhaFim {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.footer p{
+  text-align: center;
+  font-family: Abel;
+  text-transform: capitalize;
+  padding: 2rem;
+}
+
+.footer div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.footer .final {
+  border-top: 1px solid #FFFFFF;
+  padding-top: 1rem;
+}
+
+.line {
+  padding-inline: 100%;
+  border: 1px solid #F7A675;
+}
+
+.card{
+  display: flex;
+  position: relative;
+  background-color: #FFDEB9;
+  border-radius: 1.25rem;
+  border: 1px solid #000;
+  margin: 1rem;
+  padding: .5rem;
+}
+
+.imagem {
+  width: 5rem;
+  height: 5rem;
+  max-width: 60rem;
+  max-height: 70rem;
+  margin: 1rem;
+}
+
+.cardGroup {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.nimbus {
+  color: #101010;
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.titulo-card{
+  text-transform: capitalize;
+}
+
+.card1{
+  background-color: #6788C3;
+}
+
+.card2 {
+  background-color: #FAAD7A;
+  display: flex;
+  flex-direction: row-reverse ;
+  justify-content: center;
+}
+
+
+.card3{
+  background-color: #D4ADD0;
+
 }
