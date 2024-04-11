@@ -16,7 +16,7 @@ const Navigation = ({ navLinks }) => {
                             );
                     })}
         </ul>
-        <Link href={"/"}><img src="Union.png" className="logo" /></Link>
+        <Link href={"/"}><img src="logoGG.png" className="logo" /></Link>
         </nav>
     )
 }

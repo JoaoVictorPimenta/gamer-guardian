@@ -1,8 +1,7 @@
 'use client'
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import VideoCard from "@/app/components/VideoCard";
-// import { Abel } from 'next/font/google'
+
 export default function RelaxamentoMusc() {
     let videosMusc = [
         {

@@ -1,39 +1,25 @@
 
-import Image from "next/image";
-import styles from "./page.module.css";
 import Link from "next/link";
 import React from 'react';
-
-// export default function Home() {
-//   return (
-//     <div className="fundo">
-//       <main>
-//         <p>eu sou a pagina inicial</p>
-//       </main>
-//     </div>
-//   );
-// }
-
-
 
 const dados = [
   {
     titulo: "técnicas de relaxamento",
-    imagem: "relaxamento.png",
+    imagem: "relaxIcon.png",
     style: "card1",
     introducao: "Encontre alguns exemplos de técnicas de relaxamento, tanto muscular quanto mental, para realizar em casa.",
     link: "/tecnicas-de-relaxamento"
   },
   {
     titulo: "rotina leve",
-    imagem: "rotina.png",
+    imagem: "healthIcon.png",
     style: "card2",
     introducao: "Conte com um planejamento da rotina de faculdade e trabalho alinhado ao seu tempo de lazer!",
     link: "/rotina-leve"
   },
   {
     titulo: "permita-se sentir",
-    imagem: "sentimento.png",
+    imagem: "feeling.png",
     style: "card3",
     introducao: "Responda nosso quiz diário e garanta sugestões de jogos de acordo com seus sentimentos!",
     link: "/permita-se-sentir"
