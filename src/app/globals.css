@@ -1,3 +1,103 @@
+
+.titulo {
+  font-family: 'Abel';
+  font-size: 22px;
+  color: black;
+}
+
+.fundo {
+  background-color: #F9ECDD;
+}
+
+.alinhaVert {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.cardGroup {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.alinhaHoriz {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+
+  gap: 1rem;
+}
+
+.imagem {
+  width: 5rem;
+  height: 5rem;
+  max-width: 60rem;
+  max-height: 70rem;
+  margin: 1rem;
+}
+
+.card {
+  background-color: #FFDEB9;
+  border-radius: 1.25rem;
+  border: 1px solid #000;
+  margin: 1rem;
+  padding: .5rem;
+}
+
+.nomePag {
+  text-align: center;
+  font-family: Abel;
+  font-size: 1.4375rem;
+  font-style: normal;
+  font-weight: bolder;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.pag1 {
+  color: #6788C3;
+}
+
+.pag2 {
+  color: #FAAD7A;
+}
+
+.pag3 {
+  color: #D4ADD0;
+}
+
+.nimbus {
+  color: #101010;
+  font-family: "Nimbus Sans L";
+  font-style: normal;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.atividade {
+  font-weight: bolder;
+}
+
+.botao:link {
+  border-radius: 2.4375rem;
+  border: 2px solid #DA705A;
+  display: flex;
+  padding: .2rem;
+  padding-inline: 1rem;
+  order: 2;
+  align-self: flex-end;
+  text-decoration: none; 
+
+}
+
+.botao:hover {
+  border-radius: 2.4375rem;
+  border: 2px solid #000000;
+  background-color: #DA705A;
+  color: white;
+
 body{
   padding: 0;
   margin: 0;
@@ -140,4 +240,5 @@ body{
 
 .card3{
   background-color: #D4ADD0;
+
 }
