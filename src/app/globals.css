@@ -124,6 +124,11 @@
   text-transform: capitalize;
 }
 
+.nimbus-sentimento {
+  color: #101010;
+  font-family: "Nimbus Sans L";  
+}
+
 .atividade {
   font-weight: bold;
 }
@@ -136,8 +141,28 @@
   padding-inline: 1rem;
   order: 2;
   align-self: flex-end;
+  text-decoration: none; 
+}
+
+.botao-resultado{
+  border-radius: 2.4375rem;
+  border: 1px solid #DA705A;
+  display: flex;
+  padding: .2rem;
+  padding-inline: 1rem;
+  width: 20%;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; 
+}
+
   text-decoration: none;
 
+.link-resultado{
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 0rem;
 }
 
 .link:link {
@@ -326,7 +351,92 @@ body {
 
 .card3 {
   background-color: #D4ADD0;
+}
 
+.checkbox-round {
+  display: flex;
+  flex-direction: row;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-round:checked {
+  background-color: #DA705A;
+}
+
+.emoji-input {
+  display: none;
+}
+
+/* Estilização dos labels para parecerem botões */
+.emoji-label {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Estilização dos emojis */
+.emoji-label img {
+  width: 50px; /* Tamanho do emoji */
+  height: 50px; /* Tamanho do emoji */
+  border-radius: 50%; /* Forma circular para o botão */
+  border: 2px solid transparent; /* Borda transparente inicial */
+  transition: border 0.3s ease; /* Transição suave para a borda */
+}
+
+/* Estilização dos emojis quando estão selecionados */
+.emoji-input:checked + .emoji-label img {
+  border: 3px solid #DA705A; /* Cor da borda quando selecionado */
+}
+
+.checkboxes{
+  display: flex;
+  flex-direction: column;
+  padding-left: 5rem;
+}
+
+.checkbox{
+  display: flex;
+  flex-direction: row;
+}
+
+.card-content{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+article h3{
+  display: flex;
+  justify-content: center;
+}
+
+.emojis{
+  display: flex;
+  justify-content: center;
+}
+
+.selecao{
+  display: flex;
+  justify-content: center;
+}
+
+select{
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #F9ECDD;
+  border: 1px solid #000;
+=======
 }
 
 .card3:hover {
@@ -380,4 +490,5 @@ body {
 
 .linkColor {
   color: black;
+
 }
