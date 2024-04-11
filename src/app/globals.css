@@ -7,6 +7,9 @@
 
 .fundo {
   background-color: #F9ECDD;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .alinhaVert {
@@ -77,7 +80,7 @@
 }
 
 .atividade {
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 .botao:link {
@@ -90,6 +93,10 @@
   align-self: flex-end;
   text-decoration: none; 
 
+}
+
+.link:link {
+  text-decoration: none; 
 }
 
 .botao:hover {
@@ -153,7 +160,7 @@ body{
   height: 27.71px;
   flex-shrink: 0;
   padding-top:5px;
-  padding-right: 5px;
+  padding-right: 1rem;
 }
 
 .container{
@@ -172,18 +179,36 @@ body{
 .footer{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background-color: #101010 ;
-  padding: auto;
-  align-items: center;
+  align-items: stretch;
   color: #FFFFFF;
   font-family: "Open Sans";
+  padding-inline: 1rem;
+}
+
+.alinhaFim {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.footer p{
+  text-align: center;
+  font-family: Abel;
+  text-transform: capitalize;
+  padding: 2rem;
 }
 
 .footer div{
-  border-bottom: 1px solid #FFFFFF;
-  font-family: Abel;
-  text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.footer .final {
+  border-top: 1px solid #FFFFFF;
+  padding-top: 1rem;
 }
 
 .line {

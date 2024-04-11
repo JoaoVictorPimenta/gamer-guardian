@@ -6,11 +6,12 @@ const Footer = () => {
 
         <footer className='footer'>
             <div>
-                <p>técnicas de relaxamento</p>
-                <p>Rotina Leve</p>
-                <p>Permita-se Sentir</p>
+                <Link href={"/tecnicas-de-relaxamento"} className="link"><p>Técnicas de Relaxamento</p></Link>
+                <Link href={"/rotina-leve"} className="link"><p>Rotina Leve</p></Link>
+                <Link href={"/permita-se-sentir"} className="link"><p>Permita-se Sentir</p></Link>
+
             </div>
-            <p style={{ bordertop: "5px" }}>© 2024 cavalo_sentado.png</p>
+            <p style={{ bordertop: "5px" }} className="final">© 2024 cavalo_sentado.png</p>
         </footer>
     )
 }

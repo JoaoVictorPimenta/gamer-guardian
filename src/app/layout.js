@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className + " fundo"}>
         <Navigation navLinks={navLinks} />
         {children}
-        <Footer/>
+        <Footer className="alinhaFim"/>
       </body>
     </html>
   )
