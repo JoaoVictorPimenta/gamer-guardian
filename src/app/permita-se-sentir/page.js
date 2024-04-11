@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 // import { Abel } from 'next/font/google'
-export default function Relaxamento() {
+export default function Sentir() {
     let dados = [
         {
             imagem: "muscIcon.png",
@@ -18,7 +18,7 @@ export default function Relaxamento() {
     return (
         <>
             <p><Link href="/">Voltar</Link></p>
-            <h2 className="nomePag pag1">Técnicas de Relaxamento</h2>
+            <h2 className="nomePag pag3">Permita-se Sentir</h2>
             <div>
                 <section className="cardGroup">
                     {dados.map(dado => <Card {...dado} />)}

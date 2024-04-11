@@ -5,35 +5,51 @@ import { useSearchParams } from "next/navigation";
 export default function SaudeMental() {
     let dados = [
         {
-            imagem: "muscIcon.png",
-            nome: "RELAXAMENTO MUSCULAR",
-            texto: "Realize relaxamentos para poder reduzir a tensão muscular no corpo causada pelo estresse e sinta-se mais leve."
+            nome: "Segunda",
+            hrEstudo: "4hrs",
+            hrJogo: "3hrs",
+            hrTarefa: "2hrs",
         },
         {
-            imagem: "mindIcon.png",
-            nome: "RELAXAMENTO MENTAL",
-            texto: "Nosso cérebro está em constante atuação, principalmente ao estudar e superar desafios em jogos. Conheça alguns exercícios para tranquilizar e acalmar a mente."
-        }
+            nome: "Terça",
+            hrEstudo: "4hrs",
+            hrJogo: "3hrs",
+            hrTarefa: "2hrs",
+        },
+        {
+            nome: "Quarta",
+            hrEstudo: "4hrs",
+            hrJogo: "3hrs",
+            hrTarefa: "2hrs",
+        },
+        {
+            nome: "Quinta",
+            hrEstudo: "4hrs",
+            hrJogo: "3hrs",
+            hrTarefa: "2hrs",
+        },
+        {
+            nome: "Sexta",
+            hrEstudo: "4hrs",
+            hrJogo: "3hrs",
+            hrTarefa: "2hrs",
+        },
     ]
-    const params = useSearchParams();
-    const titulo = params.get("titulo");
     return (
         <>
             <h2 className="nomePag pag2">Rotina Leve</h2>
-            <div>
-                <section className="cardGroup">
+            {/* <div className="cardGroup">
                     {dados.map(dado => <Card {...dado} />)}
-                </section>
-            </div>
+            </div> */}
         </>
     )
 }
 
-function Card({ imagem, nome, texto }) {
+function Card({ nome, hrEstudo, hrJogo, hrTarefa }) {
     return (
         <article className="alinhaVert card">
+            <h3 className="titulo nimbus atividade" >{nome}</h3>
             <div className="alinhaHoriz stretch">
-            <img className="imagem" src={imagem} />
             <div className="alinhaVert">
                 <h3 className="titulo nimbus atividade">{nome}</h3>
                 <p className="nimbus">{texto}</p>
