@@ -3,26 +3,88 @@ body{
   margin: 0;
 }
 
-.topnav{
+/* components/Navbar.module.css */
+
+.topnav {
   display: flex;
   flex-direction: row;
-  position: 'absolute';
   position: sticky;
   font-family: "Nimbus Sans L";
   text-transform: uppercase;
-  color: #F9ECDD;
+  color: #f9ecdd;
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
   background-color: #101010;
 }
 
-.topnav a {
-  text-decoration: none;
+.logo {
+  flex-shrink: 0;
+  padding: 0 1rem;
+}
+
+.logoImg {
+  width: 40px;
+  height: 28px;
 }
 
 .btn-mobile {
+  display: none; /* Oculta o botão em telas maiores que 360px */
+}
+
+.menuToggle {
+  display: none; /* Oculta o checkbox em telas maiores que 360px */
+}
+
+.menuIcon {
+  cursor: pointer;
   display: none;
+  position: relative;
+  margin-left: 10px;
+  height: 24px;
+  width: 30px;
+}
+
+.menuIcon span {
+  display: block;
+  background: #fff;
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  transition: all 0.3s;
+}
+
+.menuIcon span:nth-child(1) {
+  top: 10%;
+}
+
+.menuIcon span:nth-child(2){
+  top: 50%;
+  
+}
+.menuIcon span:nth-child(3) {
+  top: 80%;
+}
+
+.menuIcon span:nth-child(2) {
+  transform: translateY(-50%);
+}
+
+.menuIcon span:nth-child(3) {
+  bottom: 0;
+}
+
+#menu-toggle:checked + .menuIcon span:nth-child(1),
+#menu-toggle:checked + .menuIcon span:nth-child(3) {
+  background-color: transparent;
+}
+
+#menu-toggle:checked + .menuIcon span:nth-child(2) {
+  transform: rotate(45deg) translate(0, -2px);
+}
+
+#menu-toggle:checked + .menuIcon span:nth-child(3) {
+  transform: rotate(-45deg) translate(0, 2px);
 }
 
 .menu {
@@ -43,17 +105,51 @@ body{
 }
 
 .menu a:hover {
-  background-color: #6788C3;
-  color: #F9ECDD;
+  background-color: #6788c3;
+  color: #f9ecdd;
 }
 
-.logo{
+/* Estilos para telas menores que 360px */
+@media (max-width: 500px) {
+  .btn-mobile {
+    display: block;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .menuIcon{
+    display: block;
+  }
+
+  .menu {
+    display: none; /* Inicialmente oculta o menu */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #101010;
+  }
+
+  .menuToggle {
+    display: block;
+  }
+
+  #menu-toggle:checked + .menu {
+    display: flex;
+  }
+}
+
+
+/* .logo{
   width: 39.359px;
   height: 27.71px;
   flex-shrink: 0;
   padding-top:5px;
   padding-right: 5px;
-}
+} */
 
 .container{
   display: flex;

@@ -32,15 +32,31 @@ export default function Home() {
     </div> */
     <div>
      <nav className="topnav">
-    <button className="btn-mobile">
-        <span className="hamburguer"></span>
-    </button>
-    <ul className="menu">
-        <li><a>técnicas de relaxamento</a></li>
-        <li><a>rotina leve</a></li>
-        <li><a>permita-se sentir</a></li>
-    </ul>
-    <img src="Union.png" className="logo" />
+      {/* <input type="checkbox" id="menu-toggle" className="menuToggle" /> */}
+      <label htmlFor="menu-toggle" className="menuIcon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <ul className="menu">
+        <li className="menuItem">
+
+            <a>técnicas de relaxamento</a>
+        </li>
+        <li className="menuItem">
+        
+            <a>rotina leve</a>
+         
+        </li>
+        <li className="menuItem">
+         
+            <a>permita-se sentir</a>
+         
+        </li>
+      </ul>
+      <div className="logo">
+        <img src="/Union.png" alt="Logo" className="logoImg" />
+      </div>
     </nav>
 
       <div className='container'>
