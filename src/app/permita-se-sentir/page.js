@@ -1,11 +1,10 @@
 'use client'
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-// import { Abel } from 'next/font/google'
+
 export default function Sentir() {
     return (
         <>
-            <p><Link href="/">Voltar</Link></p>
+            <Link href="/" className="link linkColor"> <div className="botaoVoltar"> <img className="imagemArrow" src="../arrow.png" />  <p>Voltar</p> </div></Link>
             <h2 className="nomePag pag3">Permita-se Sentir</h2>
 
             <h3>Introdução</h3>
@@ -76,17 +75,17 @@ function Card() {
                 <div>
                     <h3 className="nimbus-sentimento">Qual gênero gostaria de jogar hoje? </h3>
                     <div className="selecao">
-                    <select name="select">
-                        <option>FPS</option>
-                        <option>RPG</option>
-                        <option>Battle Royale</option>
-                        <option selected>Selecione.. </option>
-                    </select>
+                        <select name="select">
+                            <option>FPS</option>
+                            <option>RPG</option>
+                            <option>Battle Royale</option>
+                            <option selected>Selecione.. </option>
+                        </select>
                     </div>
                 </div>
 
                 <div className="link-resultado">
-                <Link className="botao-resultado nimbus" href={`/{nome}`}>Ver resultados</Link>
+                    <Link className="botao-resultado nimbus" href="/permita-se-sentir/indica-jogo">Ver resultados</Link>
                 </div>
             </div>
         </article>

@@ -157,8 +157,6 @@
   text-decoration: none; 
 }
 
-  text-decoration: none;
-
 .link-resultado{
   display: flex;
   justify-content: center;
@@ -436,7 +434,6 @@ select{
   border-radius: 0.5rem;
   background-color: #F9ECDD;
   border: 1px solid #000;
-=======
 }
 
 .card3:hover {
