@@ -2,21 +2,19 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
-export default function Home() {
-  return (
-    <div className="fundo">
-      <main>
-        <p>eu sou a pagina inicial</p>
-      </main>
-    </div>
-  );
-}
-
-
 import React from 'react';
 
-//primeiro commit
-//subindo alterações pro github
+// export default function Home() {
+//   return (
+//     <div className="fundo">
+//       <main>
+//         <p>eu sou a pagina inicial</p>
+//       </main>
+//     </div>
+//   );
+// }
+
+
 
 const dados = [
   {
@@ -41,23 +39,7 @@ const dados = [
 
 export default function Home() {
   return (
-   /*  <div>
-      <h1>Ola</h1>
-        <img src={"Union.png"} alt="My Image" title="Logo" />
-    </div> */
     <div>
-     <nav className="topnav">
-    <button className="btn-mobile">
-        <span className="hamburguer"></span>
-    </button>
-    <ul className="menu">
-        <li><a>técnicas de relaxamento</a></li>
-        <li><a>rotina leve</a></li>
-        <li><a>permita-se sentir</a></li>
-    </ul>
-    <img src="Union.png" className="logo" />
-    </nav>
-
       <div className='container'>
         <h2>O que é Gamerguardian? </h2>
         <div className='introduction'>
@@ -72,16 +54,6 @@ export default function Home() {
           {dados.map(item => <HomeCard {...item}/>)}
         </div>
       </div>
-
-      <footer className='footer'>
-        <div>
-        <p>técnicas de relaxamento</p>
-        <p>Rotina Leve</p>
-        <p>Permita-se Sentir</p>
-        </div>
-        <p style={{bordertop:"5px" }}>© 2024 cavalo_sentado.png</p>
-      </footer>
-
     </div>
 
   );

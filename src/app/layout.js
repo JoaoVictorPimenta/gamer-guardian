@@ -13,10 +13,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const navLinks = [
     {
-      name: "Home",
-      href: "/",
-    },
-    {
       name: "Técnicas de Relaxamento",
       href: "/tecnicas-de-relaxamento",
     },
@@ -31,7 +27,7 @@ export default function RootLayout({ children }) {
   ];
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className + " fundo"}>
         <Navigation navLinks={navLinks} />
         {children}
         <Footer/>
