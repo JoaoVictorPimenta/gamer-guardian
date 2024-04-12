@@ -1,8 +1,39 @@
-
 .titulo {
   font-family: 'Abel';
   font-size: 22px;
   color: black;
+}
+
+.diaSem {
+  font-family: 'Abel';
+  font-size: 20px;
+  color: #6788C3;
+  font-family: "Nimbus Sans L";
+  font-style: normal;
+  line-height: normal;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.recomendacoes {
+  font-family: 'Abel';
+  font-size: 20px;
+  color: black;
+  font-family: "Nimbus Sans L";
+  font-style: normal;
+  line-height: normal;
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.cardDia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.withLine {
+  border-bottom: 1px solid #000000;
 }
 
 .fundo {
@@ -29,8 +60,15 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: stretch;
-
   gap: 1rem;
+}
+
+.space {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding-inline: 1rem;
 }
 
 .imagem {
@@ -47,6 +85,13 @@
   border: 1px solid #000;
   margin: 1rem;
   padding: .5rem;
+}
+
+.cardNew {
+  background-color: #FFDEB9;
+  border-radius: 1.25rem;
+  border: 1px solid #000;
+  margin: 1rem;
 }
 
 .nomePag {
@@ -79,6 +124,11 @@
   text-transform: capitalize;
 }
 
+.nimbus-sentimento {
+  color: #101010;
+  font-family: "Nimbus Sans L";  
+}
+
 .atividade {
   font-weight: bold;
 }
@@ -92,11 +142,33 @@
   order: 2;
   align-self: flex-end;
   text-decoration: none; 
+}
 
+.botao-resultado{
+  border-radius: 2.4375rem;
+  border: 1px solid #DA705A;
+  display: flex;
+  padding: .2rem;
+  padding-inline: 1rem;
+  width: 20%;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; 
+}
+
+.link-resultado{
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 0rem;
 }
 
 .link:link {
-  text-decoration: none; 
+  text-decoration: none;
+}
+
+.corFooter {
+  color: white;
 }
 
 .botao:hover {
@@ -106,12 +178,12 @@
   color: white;
 }
 
-body{
+body {
   padding: 0;
   margin: 0;
 }
 
-.topnav{
+.topnav {
   display: flex;
   flex-direction: row;
   position: 'absolute';
@@ -155,15 +227,15 @@ body{
   color: #F9ECDD;
 }
 
-.logo{
+.logo {
   width: 39.359px;
   height: 27.71px;
   flex-shrink: 0;
-  padding-top:5px;
+  padding-top: 5px;
   padding-right: 1rem;
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -172,14 +244,15 @@ body{
   font-family: "Nimbus Sans L";
 }
 
-.container h2{
+.container h2 {
   color: #DA705A;
   font-family: "Abel";
 }
-.footer{
+
+.footer {
   display: flex;
   flex-direction: column;
-  background-color: #101010 ;
+  background-color: #101010;
   align-items: stretch;
   color: #FFFFFF;
   font-family: "Open Sans";
@@ -192,14 +265,14 @@ body{
   margin-top: auto;
 }
 
-.footer p{
+.footer p {
   text-align: center;
   font-family: Abel;
   text-transform: capitalize;
   padding: 2rem;
 }
 
-.footer div{
+.footer div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -211,12 +284,14 @@ body{
   padding-top: 1rem;
 }
 
-.line {
-  padding-inline: 100%;
-  border: 1px solid #F7A675;
+
+.introduction {
+  border-bottom: 1px solid #F7A675;
+  padding-top: 1rem;
+  margin-inline: 1rem;
 }
 
-.card{
+.card {
   display: flex;
   position: relative;
   background-color: #FFDEB9;
@@ -248,23 +323,169 @@ body{
   line-height: normal;
 }
 
-.titulo-card{
+.titulo-card {
   text-transform: capitalize;
 }
 
-.card1{
+.card1 {
   background-color: #6788C3;
+}
+
+.card1:hover {
+  opacity: 0.8;
 }
 
 .card2 {
   background-color: #FAAD7A;
   display: flex;
-  flex-direction: row-reverse ;
+  flex-direction: row-reverse;
   justify-content: center;
 }
 
+.card2:hover {
+  opacity: 0.8;
+}
 
-.card3{
+
+.card3 {
   background-color: #D4ADD0;
+}
+
+.checkbox-round {
+  display: flex;
+  flex-direction: row;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-round:checked {
+  background-color: #DA705A;
+}
+
+.emoji-input {
+  display: none;
+}
+
+/* Estilização dos labels para parecerem botões */
+.emoji-label {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Estilização dos emojis */
+.emoji-label img {
+  width: 50px; /* Tamanho do emoji */
+  height: 50px; /* Tamanho do emoji */
+  border-radius: 50%; /* Forma circular para o botão */
+  border: 2px solid transparent; /* Borda transparente inicial */
+  transition: border 0.3s ease; /* Transição suave para a borda */
+}
+
+/* Estilização dos emojis quando estão selecionados */
+.emoji-input:checked + .emoji-label img {
+  border: 3px solid #DA705A; /* Cor da borda quando selecionado */
+}
+
+.checkboxes{
+  display: flex;
+  flex-direction: column;
+  padding-left: 5rem;
+}
+
+.checkbox{
+  display: flex;
+  flex-direction: row;
+}
+
+.card-content{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+article h3{
+  display: flex;
+  justify-content: center;
+}
+
+.emojis{
+  display: flex;
+  justify-content: center;
+}
+
+.selecao{
+  display: flex;
+  justify-content: center;
+}
+
+select{
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #F9ECDD;
+  border: 1px solid #000;
+}
+
+.card3:hover {
+  opacity: 0.8;
+}
+
+.textinho {
+  color: black;
+  text-align: justify;
+  font-family: "Nimbus Sans L";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.imagemVideo {
+  width: 12rem;
+  flex-shrink: 0;
+  max-width: 60rem;
+  max-height: 70rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.nimbusLink {
+  color: #002B78;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.padding {
+  padding-inline: 1rem;
+}
+
+.imagemArrow {
+  flex-shrink: 0;
+  max-width: 60rem;
+  max-height: 70rem;
+  margin-inline: 1rem;
+  height: 1rem;
+}
+
+.botaoVoltar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.linkColor {
+  color: black;
 
 }
