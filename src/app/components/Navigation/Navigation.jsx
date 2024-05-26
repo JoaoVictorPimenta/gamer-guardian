@@ -8,24 +8,32 @@ const Navigation = () => {
             <img src="logoGG.png" className={styles.logo} />
             </Link>
             <div className={styles.items}>
+
+            <Link className={styles.itemHidden} href="/">
+                <img className={styles.icon} src="home.png"/>
+                <p className={styles.name}>
+                    Home
+                </p>
+           </Link>
+
            <Link className={styles.item} href="/tecnicas-de-relaxamento">
                 <img className={styles.icon} src="relaxIconPink.png"/>
-                <div>
+                <p className={styles.name}>
                     Técnica de Relaxamento
-                </div>
+                </p>
            </Link>
 
            <Link className={styles.item} href="/rotina-leve">
                 <img className={styles.icon} src="healthIconPink.png"/>
-                <div>
+                <p className={styles.name}>
                     Rotina Leve
-                </div>
+                </p>
            </Link>
            <Link className={styles.item} href="/permita-se-sentir">
                 <img className={styles.icon} src="feelingPink.png"/>
-                <div>
+                <p className={styles.name}>
                     Permita-se Sentir
-                </div>
+                </p>
            </Link>
             </div>
         </nav>

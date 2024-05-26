@@ -24,6 +24,7 @@
   line-height: normal;
   text-transform: capitalize;
   text-align: left;
+  padding-inline: 1rem;
 }
 
 .cardDia {
@@ -102,6 +103,7 @@
   font-weight: bolder;
   line-height: normal;
   text-transform: uppercase;
+  padding-top: 20px;
 }
 
 .pag1 {
@@ -179,12 +181,6 @@ body {
   flex-direction: column;
   margin: 0;
   padding: 0;
-}
-
-@media screen and (min-width: 500px) {
-  body {
-    flex-direction: column-reverse;
-  }
 }
 
 .container {
@@ -328,7 +324,7 @@ body {
 .checkboxes{
   display: flex;
   flex-direction: column;
-  padding-left: 5rem;
+  justify-content: center;
 }
 
 .checkbox{
@@ -380,6 +376,7 @@ select{
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  padding-inline: 1rem;
 }
 
 .imagemVideo {
@@ -419,4 +416,28 @@ select{
 
 .linkColor {
   color: black;
+}
+
+.hide {
+    display: none;
+}
+
+@media screen and (min-width: 500px) {
+  body {
+    flex-direction: column-reverse;
+  }
+
+  .hide {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .checkboxes{
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding-right: 40px;
+  }
 }
