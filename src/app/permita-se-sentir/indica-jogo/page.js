@@ -1,5 +1,8 @@
 'use client'
 import Link from "next/link";
+import { useState, useEffect } from 'react';
+import Games from '../api/games';
+
 
 export default function IndicaJogo() {
     let dados = [
@@ -18,6 +21,22 @@ export default function IndicaJogo() {
             texto: "Siga a história de Max Caulfield, uma estudante de fotografia que descobre ser capaz de rebobinar o tempo ao salvar a melhor amiga, Chloe Price. As duas logo começam a investigar o desaparecimento misterioso da amiga e também estudante Rachel Amber, e desvendam o lado sombrio da vida em Arcadia Bay. Ao mesmo tempo, Max aprende rápido que alterar o passado pode por vezes levar a um futuro devastador.",
         }
     ]
+
+    const [games, setGames] = useState([]);
+
+    useEffect(() => {
+        getGames();
+    }, []);
+
+    const getGames = async () => {
+        try {
+            const response = await fetch('/api/games');
+            const data = await response.json(); 
+            setGames(data.results);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
     return (
         <>
             <Link href="/permita-se-sentir" className="link linkColor"> <div className="botaoVoltar"> <img className="imagemArrow" src="../arrow.png" />  <p>Voltar</p> </div></Link>
@@ -30,13 +49,26 @@ export default function IndicaJogo() {
     )
 }
 
-function Card({ titulo, texto, line }) {
+// function Card({ titulo, texto, line }) {
+//     return (
+//         <article className={"cardDia " + line}>
+//             <h3 className="nimbus-sentimento" >{titulo}</h3>
+//             <div className="space">
+//                 <div className="alinhaVert">
+//                     <p>{texto}</p>
+//                 </div>
+//             </div>
+//             <getGames/>
+//         </article>
+//     );
+// }
+function Card({ titulo, plataforma }) {
     return (
-        <article className={"cardDia " + line}>
-            <h3 className="nimbus-sentimento" >{titulo}</h3>
+        <article className="cardDia">
+            <h3 className="nimbus-sentimento">{titulo}</h3>
             <div className="space">
                 <div className="alinhaVert">
-                    <p>{texto}</p>
+                    <p>Plataforma: {plataforma}</p>
                 </div>
             </div>
         </article>
