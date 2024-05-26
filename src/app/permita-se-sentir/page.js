@@ -4,11 +4,11 @@ import Link from "next/link";
 export default function Sentir() {
     return (
         <>
-            <Link href="/" className="link linkColor"> <div className="botaoVoltar"> <img className="imagemArrow" src="../arrow.png" />  <p>Voltar</p> </div></Link>
+            <Link href="/" className="link linkColor"> <div className="botaoVoltar"> <img className="imagemArrow" src="https://img.icons8.com/ios/250/000000/home.png" />  <p>Home</p> </div></Link>
             <h2 className="nomePag pag3">Permita-se Sentir</h2>
 
             <h3>Introdução</h3>
-            <p>
+            <p className= "textinho">
                 É uma plataforma que auxilia jovens gamers a buscar auxilio para suas questões de saúde mental sem tratar como um tabu. A partir de recursos para garantir um planejamento entre deveres e lazer, além de técnicas de relaxamento e serviço de apoio psicológico, o indivíduo apresenta um cotidiano mais leve e acolhedor.
             </p>
             <div>
@@ -72,7 +72,7 @@ function Card() {
 
                 </div>
 
-                <div>
+                {/* <div>
                     <h3 className="nimbus-sentimento">Qual gênero gostaria de jogar hoje? </h3>
                     <div className="selecao">
                         <select name="select">
@@ -82,7 +82,7 @@ function Card() {
                             <option selected>Selecione.. </option>
                         </select>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="link-resultado">
                     <Link className="botao-resultado nimbus" href="/permita-se-sentir/indica-jogo">Ver resultados</Link>
