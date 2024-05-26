@@ -4,10 +4,9 @@ import Link from "next/link";
 export default function Sentir() {
     return (
         <>
-            <Link href="/" className="link linkColor"> <div className="botaoVoltar"> <img className="imagemArrow" src="https://img.icons8.com/ios/250/000000/home.png" />  <p>Home</p> </div></Link>
             <h2 className="nomePag pag3">Permita-se Sentir</h2>
 
-            <h3>Introdução</h3>
+            <h3 className="recomendacoes">Introdução</h3>
             <p className= "textinho">
                 É uma plataforma que auxilia jovens gamers a buscar auxilio para suas questões de saúde mental sem tratar como um tabu. A partir de recursos para garantir um planejamento entre deveres e lazer, além de técnicas de relaxamento e serviço de apoio psicológico, o indivíduo apresenta um cotidiano mais leve e acolhedor.
             </p>
@@ -66,7 +65,7 @@ function Card() {
 
                         <div className="checkbox">
                             <input type="checkbox" class="checkbox-round"></input>
-                            <label>XBox</label>
+                            <label>Xbox</label>
                         </div>
                     </div>
 

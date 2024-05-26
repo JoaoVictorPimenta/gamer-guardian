@@ -22,7 +22,7 @@ export default function IndicaJogo() {
         <>
             <Link href="/permita-se-sentir" className="link linkColor"> <div className="botaoVoltar"> <img className="imagemArrow" src="../arrow.png" />  <p>Voltar</p> </div></Link>
             <h2 className="nomePag pag3">Permita-se Sentir</h2>
-            <p>Veja aqui alguns jogos recomendados!</p>
+            <p className="textinho">Veja aqui alguns jogos recomendados!</p>
             <div className="cardGroup alinhaVert cardNew">
                 {dados.map(dado => <Card {...dado} />)}
             </div>
