@@ -1,8 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
+import Navigation from "./components/Navigation/Navigation";
+import Footer from "./components/Footer/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -11,26 +11,14 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const navLinks = [
-    {
-      name: "Técnicas de Relaxamento",
-      href: "/tecnicas-de-relaxamento",
-    },
-    {
-      name: "Rotina Leve",
-      href: "/rotina-leve",
-    },
-    {
-      name: "Permita-se Sentir",
-      href: "/permita-se-sentir",
-    },
-  ];
   return (
     <html lang="en">
-      <body className={inter.className + " fundo"}>
-        <Navigation navLinks={navLinks} />
-        {children}
+      <body >
         <Footer className="alinhaFim"/>
+        <div className={inter.className + " fundo"}>
+          {children}
+        </div>
+        <Navigation />
       </body>
     </html>
   )
