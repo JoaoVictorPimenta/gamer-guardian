@@ -1,0 +1,34 @@
+.footer{
+  background-color: black;
+}
+
+.footer p {
+    text-align: center;
+    font-family: Abel;
+    text-transform: capitalize;
+    padding: 2rem;
+    color: white;
+  }
+  
+  .footer div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .footer .final {
+    border-top: 1px solid #FFFFFF;
+    padding-top: 1rem;
+  }
+  
+  .corFooter {
+    color: white;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 500px){
+    .footer{
+      display: none;
+    }
+  }
