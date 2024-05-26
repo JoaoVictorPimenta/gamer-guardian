@@ -1,7 +1,6 @@
 'use client'
 import Link from "next/link";
 import { useState, useEffect } from 'react';
-import Games from '../api/games';
 
 
 export default function IndicaJogo() {
@@ -27,7 +26,6 @@ export default function IndicaJogo() {
     useEffect(() => {
         getGames();
     }, []);
-
     const getGames = async () => {
         try {
             const response = await fetch('/api/games');
@@ -42,35 +40,28 @@ export default function IndicaJogo() {
             <Link href="/permita-se-sentir" className="link linkColor"> <div className="botaoVoltar"> <img className="imagemArrow" src="../arrow.png" />  <p>Voltar</p> </div></Link>
             <h2 className="nomePag pag3">Permita-se Sentir</h2>
             <p className="textinho">Veja aqui alguns jogos recomendados!</p>
-            <div className="cardGroup alinhaVert cardNew">
-                {dados.map(dado => <Card {...dado} />)}
+            <div>
+               {games.map(game => <Card {...game.results} />)}
             </div>
         </>
     )
 }
 
-// function Card({ titulo, texto, line }) {
-//     return (
-//         <article className={"cardDia " + line}>
-//             <h3 className="nimbus-sentimento" >{titulo}</h3>
-//             <div className="space">
-//                 <div className="alinhaVert">
-//                     <p>{texto}</p>
-//                 </div>
-//             </div>
-//             <getGames/>
-//         </article>
-//     );
-// }
-function Card({ titulo, plataforma }) {
+function Card({ name, platforms }) {
     return (
         <article className="cardDia">
-            <h3 className="nimbus-sentimento">{titulo}</h3>
+            <h3 className="nimbus-sentimento" >{name}</h3>
             <div className="space">
                 <div className="alinhaVert">
-                    <p>Plataforma: {plataforma}</p>
+                    {platforms.map(platform => <Platform{...platform}/> )}
                 </div>
             </div>
         </article>
+    )
+}
+
+function Platform({ name }) {
+    return (
+       <p>{name}</p>
     );
 }
