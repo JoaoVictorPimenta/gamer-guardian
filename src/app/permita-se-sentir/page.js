@@ -2,6 +2,66 @@
 
 import { useState, useEffect } from 'react';
 
+const Card = ({ setEmotion, setPlatform, selectedEmotion, selectedPlatform }) => {
+  const handleEmotionChange = (emotion) => {
+    setEmotion(emotion);
+  };
+
+  const handlePlatformChange = (platform) => {
+    setPlatform(platform);
+  };
+
+  return (
+    <article className="alinhaVert card">
+      <div>
+        <div>
+          <h3 className="nimbus-sentimento">Qual seu sentimento de hoje?</h3>
+          <div className="emojis">
+            {['Muito Feliz', 'Feliz', 'Normal', 'Triste', 'Muito Triste'].map((emotion) => (
+              <div key={emotion}>
+                <input
+                  type="radio"
+                  id={emotion}
+                  name="emoji"
+                  className="emoji-input"
+                  checked={selectedEmotion === emotion}
+                  onChange={() => handleEmotionChange(emotion)}
+                />
+                <label htmlFor={emotion} className="emoji-label">
+                  <img src={`${emotion.toLowerCase().replace(/ /g, '-')}.png`} alt={emotion} />
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="card-content">
+          <h3 className="nimbus-sentimento">Que plataforma você gostaria de jogar?</h3>
+          <div className="checkboxes">
+            {['Playstation', 'PC', 'Switch', 'Xbox'].map((platform) => (
+              <div className="checkbox" key={platform}>
+                <input
+                  type="checkbox"
+                  className="checkbox-round"
+                  checked={selectedPlatform === platform}
+                  onChange={() => handlePlatformChange(platform)}
+                />
+                <label>{platform}</label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="link-resultado">
+          <a className="botao-resultado nimbus" href="/permita-se-sentir/indica-jogo">
+            Ver resultados
+          </a>
+        </div>
+      </div>
+    </article>
+  );
+};
+
 const Page = () => {
   const [emotion, setEmotion] = useState('');
   const [platform, setPlatform] = useState('');
@@ -61,22 +121,12 @@ const Page = () => {
     <div>
       <h1>Permita-se Sentir</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <h2>Como você está se sentindo?</h2>
-          {['Muito Feliz', 'Feliz', 'Normal', 'Triste', 'Muito Triste'].map((em) => (
-            <button key={em} type="button" onClick={() => setEmotion(em)}>
-              {em}
-            </button>
-          ))}
-        </div>
-        <div>
-          <h2>Escolha a plataforma:</h2>
-          {['Playstation', 'PC', 'Switch', 'Xbox'].map((plat) => (
-            <button key={plat} type="button" onClick={() => setPlatform(plat)}>
-              {plat}
-            </button>
-          ))}
-        </div>
+        <Card
+          setEmotion={setEmotion}
+          setPlatform={setPlatform}
+          selectedEmotion={emotion}
+          selectedPlatform={platform}
+        />
         <div>
           <h2>Nome do Jogo:</h2>
           <input type="text" value={game} onChange={(e) => setGame(e.target.value)} />
@@ -89,9 +139,7 @@ const Page = () => {
           {games.map((g) => (
             <li key={g.id}>
               {g.emotion} - {g.platform} - {g.game}
-              <button type="button" onClick={() => handleDelete(g.id)}>
-                <img src="https://super.so/icon/dark/trash-2.svg" alt="Delete" height={10} />
-              </button>
+              <button type="button" onClick={() => handleDelete(g.id)}>Remover</button>
             </li>
           ))}
         </ul>
