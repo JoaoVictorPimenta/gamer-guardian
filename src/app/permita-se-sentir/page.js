@@ -46,6 +46,17 @@ const Page = () => {
     setGame('');
   };
 
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`http://localhost:3001/games/${id}`, {
+        method: 'DELETE',
+      });
+      setGames(games.filter((game) => game.id !== id));
+    } catch (error) {
+      console.error('Error deleting game:', error);
+    }
+  };
+
   return (
     <div>
       <h1>Permita-se Sentir</h1>
@@ -75,9 +86,10 @@ const Page = () => {
       <div>
         <h2>Lista de Jogos</h2>
         <ul>
-          {games.map((g, index) => (
-            <li key={index}>
+          {games.map((g) => (
+            <li key={g.id}>
               {g.emotion} - {g.platform} - {g.game}
+              <button type="button" onClick={() => handleDelete(g.id)}>Remover</button>
             </li>
           ))}
         </ul>

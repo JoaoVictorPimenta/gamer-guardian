@@ -1,22 +1,10 @@
 {
   "games": [
     {
-      "id": "48d6",
-      "emotion": "Muito Feliz",
-      "platform": "Playstation",
-      "game": "alegria"
-    },
-    {
-      "id": "6bf4",
+      "id": "ddc3",
       "emotion": "Normal",
-      "platform": "Switch",
-      "game": "Mario Galaxy"
-    },
-    {
-      "id": "2225",
-      "emotion": "Feliz",
-      "platform": "Switch",
-      "game": "Mario Kart 7"
+      "platform": "PC",
+      "game": "Johnny Kills ET"
     }
   ]
 }
