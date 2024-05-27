@@ -1,92 +1,75 @@
-'use client'
-import Link from "next/link";
+// src/app/permita-se-sentir/page.js
+"use client";
 
-export default function Sentir() {
-    return (
-        <>
-            <h2 className="nomePag pag3">Permita-se Sentir</h2>
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-            <h3 className="recomendacoes">Introdução</h3>
-            <p className= "textinho">
-                É uma plataforma que auxilia jovens gamers a buscar auxilio para suas questões de saúde mental sem tratar como um tabu. A partir de recursos para garantir um planejamento entre deveres e lazer, além de técnicas de relaxamento e serviço de apoio psicológico, o indivíduo apresenta um cotidiano mais leve e acolhedor.
-            </p>
-            <div>
-                <section className="cardGroup">
-                    <Card></Card>
-                </section>
-            </div>
-        </>
-    )
-}
+const Page = () => {
+  const [emotion, setEmotion] = useState('');
+  const [platform, setPlatform] = useState('');
+  const [game, setGame] = useState('');
+  const [games, setGames] = useState([]);
 
-function Card() {
-    return (
-        <article className="alinhaVert card">
-            <div>
-                <div>
-                    <h3 className="nimbus-sentimento">Qual seu sentimento de hoje?</h3>
-                    <div className="emojis">
-                        <input type="radio" id="excited" name="emoji" class="emoji-input" />
-                        <label for="excited" class="emoji-label"> <img src="excited.png" alt="Excited" /></label>
+  useEffect(() => {
+    const fetchGames = async () => {
+      const response = await axios.get('http://localhost:3001/games');
+      setGames(response.data);
+    };
 
-                        <input type="radio" id="happy" name="emoji" class="emoji-input" />
-                        <label for="happy" class="emoji-label"> <img src="happy.png" alt="Happy" /></label>
+    fetchGames();
+  }, []);
 
-                        <input type="radio" id="neutral" name="emoji" class="emoji-input" />
-                        <label for="neutral" class="emoji-label"> <img src="neutral.png" alt="Neutral" /></label>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-                        <input type="radio" id="sad" name="emoji" class="emoji-input" />
-                        <label for="sad" class="emoji-label"> <img src="sad.png" alt="Sad" /></label>
+    const newGame = { emotion, platform, game };
 
-                        <input type="radio" id="depression" name="emoji" class="emoji-input" />
-                        <label for="depression" class="emoji-label"> <img src="depression.png" alt="Depression" /></label>
-                    </div>
+    const response = await axios.post('http://localhost:3001/games', newGame);
 
-                </div>
+    setGames([...games, response.data]);
+    setEmotion('');
+    setPlatform('');
+    setGame('');
+  };
 
-                <div className="card-content">
-                    <h3 className="nimbus-sentimento">Que plataforma você gostaria de jogar? </h3>
+  return (
+    <div>
+      <h1>Permita-se Sentir</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <h2>Como você está se sentindo?</h2>
+          {['Muito Feliz', 'Feliz', 'Normal', 'Triste', 'Muito Triste'].map((em) => (
+            <button key={em} type="button" onClick={() => setEmotion(em)}>
+              {em}
+            </button>
+          ))}
+        </div>
+        <div>
+          <h2>Escolha a plataforma:</h2>
+          {['Playstation', 'PC', 'Switch', 'Xbox'].map((plat) => (
+            <button key={plat} type="button" onClick={() => setPlatform(plat)}>
+              {plat}
+            </button>
+          ))}
+        </div>
+        <div>
+          <h2>Nome do Jogo:</h2>
+          <input type="text" value={game} onChange={(e) => setGame(e.target.value)} />
+        </div>
+        <button type="submit">Adicionar Jogo</button>
+      </form>
+      <div>
+        <h2>Lista de Jogos</h2>
+        <ul>
+          {games.map((g, index) => (
+            <li key={index}>
+              {g.emotion} - {g.platform} - {g.game}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
 
-                    <div className="checkboxes">
-                        <div className="checkbox">
-                            <input type="checkbox" class="checkbox-round"></input>
-                            <label>PlayStation</label>
-                        </div>
-
-                        <div className="checkbox">
-                            <input type="checkbox" class="checkbox-round"></input>
-                            <label>PC</label>
-                        </div>
-
-                        <div className="checkbox">
-                            <input type="checkbox" class="checkbox-round"></input>
-                            <label>Switch</label>
-                        </div>
-
-                        <div className="checkbox">
-                            <input type="checkbox" class="checkbox-round"></input>
-                            <label>Xbox</label>
-                        </div>
-                    </div>
-
-                </div>
-
-                {/* <div>
-                    <h3 className="nimbus-sentimento">Qual gênero gostaria de jogar hoje? </h3>
-                    <div className="selecao">
-                        <select name="select">
-                            <option>FPS</option>
-                            <option>RPG</option>
-                            <option>Battle Royale</option>
-                            <option selected>Selecione.. </option>
-                        </select>
-                    </div>
-                </div> */}
-
-                <div className="link-resultado">
-                    <Link className="botao-resultado nimbus" href="/permita-se-sentir/indica-jogo">Ver resultados</Link>
-                </div>
-            </div>
-        </article>
-    );
-}
+export default Page;
