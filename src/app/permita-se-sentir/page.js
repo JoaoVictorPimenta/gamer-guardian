@@ -89,7 +89,9 @@ const Page = () => {
           {games.map((g) => (
             <li key={g.id}>
               {g.emotion} - {g.platform} - {g.game}
-              <button type="button" onClick={() => handleDelete(g.id)}>Remover</button>
+              <button type="button" onClick={() => handleDelete(g.id)}>
+                <img src="https://super.so/icon/dark/trash-2.svg" alt="Delete" height={10} />
+              </button>
             </li>
           ))}
         </ul>
