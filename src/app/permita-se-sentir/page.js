@@ -2,66 +2,6 @@
 
 import { useState, useEffect } from 'react';
 
-const Card = ({ setEmotion, setPlatform, selectedEmotion, selectedPlatform }) => {
-  const handleEmotionChange = (emotion) => {
-    setEmotion(emotion);
-  };
-
-  const handlePlatformChange = (platform) => {
-    setPlatform(platform);
-  };
-
-  return (
-    <article className="alinhaVert card">
-      <div>
-        <div>
-          <h3 className="nimbus-sentimento">Qual seu sentimento de hoje?</h3>
-          <div className="emojis">
-            {['Muito Feliz', 'Feliz', 'Normal', 'Triste', 'Muito Triste'].map((emotion) => (
-              <div key={emotion}>
-                <input
-                  type="radio"
-                  id={emotion}
-                  name="emoji"
-                  className="emoji-input"
-                  checked={selectedEmotion === emotion}
-                  onChange={() => handleEmotionChange(emotion)}
-                />
-                <label htmlFor={emotion} className="emoji-label">
-                  <img src={`${emotion.toLowerCase().replace(/ /g, '-')}.png`} alt={emotion} />
-                </label>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="card-content">
-          <h3 className="nimbus-sentimento">Que plataforma você gostaria de jogar?</h3>
-          <div className="checkboxes">
-            {['Playstation', 'PC', 'Switch', 'Xbox'].map((platform) => (
-              <div className="checkbox" key={platform}>
-                <input
-                  type="checkbox"
-                  className="checkbox-round"
-                  checked={selectedPlatform === platform}
-                  onChange={() => handlePlatformChange(platform)}
-                />
-                <label>{platform}</label>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="link-resultado">
-          <a className="botao-resultado nimbus" href="/permita-se-sentir/indica-jogo">
-            Ver resultados
-          </a>
-        </div>
-      </div>
-    </article>
-  );
-};
-
 const Page = () => {
   const [emotion, setEmotion] = useState('');
   const [platform, setPlatform] = useState('');
@@ -119,27 +59,35 @@ const Page = () => {
 
   return (
     <div>
-      <h1>Permita-se Sentir</h1>
+        <h2 className="nomePag pag3">Permita-se Sentir</h2>
+
+        <h3 className='recomendacoes'>Introdução</h3>
+        <p className= "textinho">
+            É uma plataforma que auxilia jovens gamers a buscar auxilio para suas questões de saúde mental sem tratar como um tabu. A partir de recursos para garantir um planejamento entre deveres e lazer, além de técnicas de relaxamento e serviço de apoio psicológico, o indivíduo apresenta um cotidiano mais leve e acolhedor.
+        </p>
       <form onSubmit={handleSubmit}>
         <Card
           setEmotion={setEmotion}
           setPlatform={setPlatform}
           selectedEmotion={emotion}
           selectedPlatform={platform}
+          setGame = {setGame}
+          selectedGame = {game}
+
         />
-        <div>
-          <h2>Nome do Jogo:</h2>
-          <input type="text" value={game} onChange={(e) => setGame(e.target.value)} />
-        </div>
-        <button type="submit">Adicionar Jogo</button>
       </form>
-      <div>
-        <h2>Lista de Jogos</h2>
+    <div>
+
+      <h3 className='recomendacoes'>Lista de Jogos</h3>
         <ul>
           {games.map((g) => (
             <li key={g.id}>
               {g.emotion} - {g.platform} - {g.game}
-              <button type="button" onClick={() => handleDelete(g.id)}>Remover</button>
+              <button className='delete' onClick={() => handleDelete(g.id)}>
+                <div>
+                 <img className='deleteImage' src="delete.png" alt="Delete" />
+                </div>
+              </button>
             </li>
           ))}
         </ul>
@@ -149,3 +97,65 @@ const Page = () => {
 };
 
 export default Page;
+
+const Card = ({ setEmotion, setPlatform, selectedEmotion, selectedPlatform, setGame,selectedGame }) => {
+  const handleEmotionChange = (emotion) => {
+    setEmotion(emotion);
+  };
+
+  const handlePlatformChange = (platform) => {
+    setPlatform(platform);
+  };
+
+  return (
+    <article className="alinhaVert card">
+      <div>
+        <div>
+          <h3 className="nimbus-sentimento">Qual seu sentimento de hoje?</h3>
+          <div className="emojis">
+            {['Muito Feliz', 'Feliz', 'Normal', 'Triste', 'Muito Triste'].map((emotion) => (
+              <div key={emotion}>
+                <input
+                  type="radio"
+                  id={emotion}
+                  name="emoji"
+                  className="emoji-input"
+                  checked={selectedEmotion === emotion}
+                  onChange={() => handleEmotionChange(emotion)}
+                />
+                <label htmlFor={emotion} className="emoji-label">
+                  <img src={`${emotion.toLowerCase().replace(/ /g, '-')}.png`} alt={emotion} />
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="card-content">
+          <h3 className="nimbus-sentimento">Que plataforma você gostaria de jogar?</h3>
+          <div className="checkboxes">
+            {['Playstation', 'PC', 'Switch', 'Xbox'].map((platform) => (
+              <div className="checkbox" key={platform}>
+                <input
+                  type="checkbox"
+                  className="checkbox-round"
+                  checked={selectedPlatform === platform}
+                  onChange={() => handlePlatformChange(platform)}
+                />
+                <label>{platform}</label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="nimbus-sentimento">Nome do Jogo:</h3>
+          <div className='input'>
+            <input type="text" className='box' value={selectedGame} placeholder='digite o jogo' onChange={(e) => setGame(e.target.value)} />
+            <button type="submit" className="botao-resultado nimbus">Adicionar Jogo</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+};
