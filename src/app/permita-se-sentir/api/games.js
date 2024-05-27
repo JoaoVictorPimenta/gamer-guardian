@@ -1,4 +1,4 @@
-const API_URL = 'https://api.rawg.io/api/games?key=d33aba0e05d8406baa8c97de778e2c50';
+const API_URL = 'http://localhost:3001/jogos';
 
 export default async function handler(req, res) {
     const {method, body, query} = req;
