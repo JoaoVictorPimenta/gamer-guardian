@@ -11,6 +11,12 @@
       "emotion": "Normal",
       "platform": "Switch",
       "game": "Mario Galaxy"
+    },
+    {
+      "id": "2225",
+      "emotion": "Feliz",
+      "platform": "Switch",
+      "game": "Mario Kart 7"
     }
   ]
 }

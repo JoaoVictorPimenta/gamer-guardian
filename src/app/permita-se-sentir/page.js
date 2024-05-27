@@ -1,8 +1,6 @@
-// src/app/permita-se-sentir/page.js
 "use client";
 
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 
 const Page = () => {
   const [emotion, setEmotion] = useState('');
@@ -12,8 +10,13 @@ const Page = () => {
 
   useEffect(() => {
     const fetchGames = async () => {
-      const response = await axios.get('http://localhost:3001/games');
-      setGames(response.data);
+      try {
+        const response = await fetch('http://localhost:3001/games');
+        const data = await response.json();
+        setGames(data);
+      } catch (error) {
+        console.error('Error fetching games:', error);
+      }
     };
 
     fetchGames();
@@ -24,9 +27,20 @@ const Page = () => {
 
     const newGame = { emotion, platform, game };
 
-    const response = await axios.post('http://localhost:3001/games', newGame);
+    try {
+      const response = await fetch('http://localhost:3001/games', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newGame),
+      });
+      const data = await response.json();
+      setGames([...games, data]);
+    } catch (error) {
+      console.error('Error adding game:', error);
+    }
 
-    setGames([...games, response.data]);
     setEmotion('');
     setPlatform('');
     setGame('');
