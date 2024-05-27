@@ -95,6 +95,31 @@
   margin: 1rem;
 }
 
+.input{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.box{
+  margin-bottom: 15px;
+  border-radius: 20px;
+  padding: 4px;
+}
+
+.delete{
+  background-color: transparent;
+  border: none;
+}
+
+.deleteImage{
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+}
+
 .nomePag {
   text-align: center;
   font-family: Abel;
@@ -150,13 +175,14 @@
   border-radius: 2.4375rem;
   border: 1px solid #DA705A;
   display: flex;
-  padding: .2rem;
+  padding: 2vh;
   padding-inline: 1rem;
   width: 20%;
   height: 25px;
   align-items: center;
   justify-content: center;
   text-decoration: none; 
+  line-break: unset;
 }
 
 .link-resultado{
